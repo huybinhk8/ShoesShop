@@ -8,16 +8,14 @@ public class NguoiDung {
 	private boolean phai;
 	private Date ngaySinh;
 	private String tenTK;
-	private String matKhau;
 	private int chucVu;
 
-	public NguoiDung(String maND, String tenND, boolean phai, Date ngaySinh, String tenTK, String matKhau, int chucVu) {
+	public NguoiDung(String maND, String tenND, boolean phai, Date ngaySinh, String tenTK, int chucVu) {
 		this.maND = maND;
 		this.tenND = tenND;
 		this.phai = phai;
 		this.ngaySinh = ngaySinh;
 		this.tenTK = tenTK;
-		this.matKhau = matKhau;
 		this.chucVu = chucVu;
 	}
 
@@ -59,14 +57,6 @@ public class NguoiDung {
 
 	public void setTenTK(String tenTK) {
 		this.tenTK = tenTK;
-	}
-
-	public String getMatKhau() {
-		return matKhau;
-	}
-
-	public void setMatKhau(String matKhau) {
-		this.matKhau = matKhau;
 	}
 
 	public int getChucVu() {

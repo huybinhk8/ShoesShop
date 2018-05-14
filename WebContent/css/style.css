@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+/* Phần đăng nhập */
+.well form table {
+	width: 60%;
+}
+
+.signin button {
+	margin-top: 10px;
+}
+
+.signin input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.signin table th {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.signin .forgetpass {
+	float: left;
+}
+
+.signin .account {
+	float: right;
+}
+/* Kết thúc phần đăng nhập */

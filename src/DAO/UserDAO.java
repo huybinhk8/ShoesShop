@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import model.NguoiDung;
+
 /**
  * Lớp viết các hàm liên quan đến User hay Account
  * 
@@ -45,7 +47,17 @@ public class UserDAO {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Phuognw thức kiểm tra đăng ký tài khoản người dùng
+	 * @param maND Mã người dùng
+	 * @param tenND Tên người dùng
+	 * @param phai giới tính
+	 * @param ngaySinh Ngày sinh
+	 * @param tenTk	Tên tài khoản (username) của người dùng
+	 * @param matKhau Mật khẩu
+	 * @return <b>true</b> nếu thành công, <b>false</b> nếu thất bại
+	 */
 	public static boolean dangKy(String maND, String tenND, boolean phai, Date ngaySinh, String tenTk, String matKhau) {
 		int i;
 		try {
@@ -76,5 +88,48 @@ public class UserDAO {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * phương thức lấy thông tin người dùng
+	 * 
+	 * @param tentk
+	 *            tên tài khoản (username) của người dùng
+	 * @return class NguoiDung
+	 */
+	public static NguoiDung getThongTinNguoiDung(String tentk) {
+		try {
+			Connection conn = DBConnection.getConnection();
+			String sql = "exec p_thongtinnguoidung ?";
+			PreparedStatement pr = conn.prepareStatement(sql);
+			pr.setString(1, tentk);
+			ResultSet rs = pr.executeQuery();
+			String maND = "";
+			String tenND = "";
+			boolean phai = true;
+			Date ngaySinh = null;
+			String tenTK = "";
+			int chucVu = 0;
+			while (rs.next()) {
+				maND = rs.getString("MAND");
+				tenND = rs.getNString("TENND");
+				int gioitinh = rs.getInt("PHAI");
+
+				if (gioitinh == 0) {
+					phai = true;
+				} else {
+					phai = false;
+				}
+				ngaySinh = rs.getDate("NGAYSINH");
+				tenTK = rs.getString("TENTK");
+				chucVu = rs.getInt("CHUCVU");
+				break;
+			}
+			return new NguoiDung(maND, tenND, phai, ngaySinh, tenTK, chucVu);
+		} catch (Exception e) {
+			System.err.println("Sai ham getThongTinNguoiDung");
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

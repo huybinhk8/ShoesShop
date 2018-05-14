@@ -68,6 +68,11 @@ ALTER TABLE DONHANG
 ADD CONSTRAINT KH_SP FOREIGN KEY (MASP) REFERENCES SANPHAM (MASP)
 go
 
+-- view 
+CREATE VIEW v_thongtingnuoidung AS
+	SELECT u.MAND,u.TENND,u.PHAI,u.NGAYSINH,u.TENTK,u.CHUCVU FROM NGUOIDUNG u;
+go
+
 -- procedure
 --thủ tục đăng ký tài khoản
 CREATE PROCEDURE p_dangky (@maND VARCHAR(10), 
@@ -75,10 +80,18 @@ CREATE PROCEDURE p_dangky (@maND VARCHAR(10),
 						   @phai INT, 
 						   @ngaySinh DATE, 
 						   @tenTK VARCHAR(100), 
-						   @matKhau NVARCHAR(32))
+						   @matKhau VARCHAR(32))
 as
 begin
 	insert into NGUOIDUNG VALUES(@maND, @tenND, @phai, @ngaySinh, @tenTK, @matKhau, 0);
 end;
 go
+
+CREATE PROCEDURE p_thongtinnguoidung (@username VARCHAR(100))
+AS 
+	SELECT * FROM v_thongtingnuoidung v WHERE v.TENTK = @username;
+go
+
+insert into NGUOIDUNG VALUES('001', N'Admin', 0,null,'admin', '123456', 1);
+
 
