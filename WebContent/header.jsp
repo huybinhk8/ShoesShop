@@ -1,3 +1,4 @@
+<%@page import="model.NguoiDung"%>
 <%@page import="java.util.Locale"%>
 <%@page import="internationalization.message.Language"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -87,19 +88,22 @@
 				href="<%=request.getContextPath()%>/contact.jsp">Liên hệ</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
+			<%
+				NguoiDung u = (NguoiDung) session.getAttribute("username");
+			%>
 			<li class="shoppingcart"><a
 				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
 					class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"><span
-						class="glyphicon glyphicon-user"></span> <%=session.getAttribute("username")%>
-						<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-								Thông tin người dùng</a></li>
-						<li><a class="glyphicon glyphicon-log-out"
-							href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
-					</ul></li>
+				data-toggle="dropdown" href="#"><span
+					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%>
+					<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							Thông tin người dùng</a></li>
+					<li><a class="glyphicon glyphicon-log-out"
+						href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
+				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-globe"></span> Ngôn ngữ <span

@@ -2,7 +2,6 @@ package internationalization.message;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

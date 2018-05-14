@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.UserDAO;
-import javafx.scene.control.Alert;
 import model.NguoiDung;
 
 /**
@@ -74,7 +73,7 @@ public class Signin extends HttpServlet {
 			if (UserDAO.dangNhap(tentk, matkhau)) {
 			//kiểm tra đăng nhập thành công
 				NguoiDung u = UserDAO.getThongTinNguoiDung(tentk);
-				session.setAttribute("username", u.getTenTK());
+				session.setAttribute("username", u);
 				link = request.getContextPath()+ "/index.jsp";
 				response.sendRedirect(link);
 			} else {
