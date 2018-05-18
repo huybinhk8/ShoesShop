@@ -94,6 +94,9 @@
 			<li class="shoppingcart"><a
 				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
 					class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+					<%
+						if(u.getChucVu() == 0){
+					%>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%>
@@ -104,6 +107,18 @@
 					<li><a class="glyphicon glyphicon-log-out"
 						href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
 				</ul></li>
+				<%}else{ %>
+				<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><font color="red"><span
+					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%></font>
+					<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							Thông tin người dùng</a></li>
+					<li><a class="glyphicon glyphicon-log-out"
+						href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
+				</ul></li>
+				<%} %>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-globe"></span> Ngôn ngữ <span
