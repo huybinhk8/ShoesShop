@@ -49,14 +49,14 @@
 			<div class="signin">
 
 				<div class="well">
-					<h2 class="text-center">Đăng nhập</h2>
+					<h2 class="text-center"><%=Language.getBundles("header.signin", (Locale) session.getAttribute("locale"))%></h2>
 					
 					<form action="<%=request.getContextPath()%>/Signin" method="post">
 					<center>
 						<table>
 							<!-- tentk -->
 							<tr>
-								<th>Tài khoản:</th>
+								<th><%=Language.getBundles("signin.username", (Locale) session.getAttribute("locale"))%></th>
 							</tr>
 							<tr>
 								<td><input type="text" class="form-control" name="tentk"
@@ -65,7 +65,7 @@
 							</tr>
 							<!-- matkhau -->
 							<tr>
-								<th>Mật khẩu:</th>
+								<th><%=Language.getBundles("signin.password", (Locale) session.getAttribute("locale"))%></th>
 							</tr>
 							<tr>
 								<td><input type="password" class="form-control"
@@ -73,9 +73,8 @@
 								<td></td>
 							</tr>
 							<tr>
-								<td><a href="#" class="forgetpass">Quên mật khẩu?</a> <a
-									href="<%=request.getContextPath()%>/signup.jsp" class="account">Tạo
-										tài khoản</a></td>
+								<td><a href="#" class="forgetpass"><%=Language.getBundles("signin.forgetpass", (Locale) session.getAttribute("locale"))%></a> <a
+									href="<%=request.getContextPath()%>/signup.jsp" class="account"><%=Language.getBundles("signin.createacount", (Locale) session.getAttribute("locale"))%></a></td>
 							</tr>
 							<tr>
 								<td><font color="red"><%=errLogin%></font></td>
@@ -83,8 +82,7 @@
 						</table>
 						</center>
 						<center>
-							<button type="submit" class="btn btn-default btn-lg">Đăng
-								nhập</button>
+							<button type="submit" class="btn btn-default btn-lg"><%=Language.getBundles("signin.login", (Locale) session.getAttribute("locale"))%></button>
 						</center>
 					</form>
 				</div>

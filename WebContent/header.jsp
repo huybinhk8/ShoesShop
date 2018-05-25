@@ -30,31 +30,29 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="home"><a class="home"
-				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("header.home", (Locale) session.getAttribute("locale"))%></a></li>
+				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("title.home", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="support"><a
-				href="<%=request.getContextPath()%>/support.jsp">Hỗ trợ</a></li>
+				href="<%=request.getContextPath()%>/support.jsp"><%=Language.getBundles("header.support", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="contact"><a
-				href="<%=request.getContextPath()%>/contact.jsp">Liên hệ</a></li>
+				href="<%=request.getContextPath()%>/contact.jsp"><%=Language.getBundles("header.contact", (Locale) session.getAttribute("locale"))%></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="shoppingcart"><a
 				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
-					class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+					class="glyphicon glyphicon-shopping-cart"></span><%=Language.getBundles("header.cart", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="register"><a
 				href="<%=request.getContextPath()%>/signup.jsp"><span
-					class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+					class="glyphicon glyphicon-user"></span><%=Language.getBundles("header.signup", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="logins"><a
 				href="<%=request.getContextPath()%>/signin.jsp"><span
-					class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+					class="glyphicon glyphicon-log-in"></span><%=Language.getBundles("header.signin", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
-					class="glyphicon glyphicon-globe"></span> Ngôn ngữ <span
+					class="glyphicon glyphicon-globe"></span><%=Language.getBundles("header.language", (Locale) session.getAttribute("locale"))%><span
 					class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<%=response.encodeURL("Lang?lang=eng")%>">Tiếng
-							anh</a></li>
-					<li><a href="<%=response.encodeURL("Lang?lang=vi")%>">Tiếng
-							việt</a></li>
+					<li><a href="<%=response.encodeURL("Lang?lang=eng")%>"><%=Language.getBundles("header.english", (Locale) session.getAttribute("locale"))%></a></li>
+					<li><a href="<%=response.encodeURL("Lang?lang=vi")%>"><%=Language.getBundles("header.vietnamese", (Locale) session.getAttribute("locale"))%></a></li>
 				</ul></li>
 		</ul>
 		<form class="navbar-form navbar-right">
@@ -83,9 +81,9 @@
 			<li class="home"><a class="home"
 				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("header.home", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="support"><a
-				href="<%=request.getContextPath()%>/support.jsp">Hỗ trợ</a></li>
+				href="<%=request.getContextPath()%>/support.jsp"><%=Language.getBundles("header.support", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="contact"><a
-				href="<%=request.getContextPath()%>/contact.jsp">Liên hệ</a></li>
+				href="<%=request.getContextPath()%>/contact.jsp"><%=Language.getBundles("header.contact", (Locale) session.getAttribute("locale"))%></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<%
@@ -93,41 +91,43 @@
 			%>
 			<li class="shoppingcart"><a
 				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
-					class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
-					<%
-						if(u.getChucVu() == 0){
-					%>
+					class="glyphicon glyphicon-shopping-cart"></span><%=Language.getBundles("header.cart", (Locale) session.getAttribute("locale"))%></a></li>
+			<%
+				if (u.getChucVu() == 0) {
+			%>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
-					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%>
-					<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Thông tin người dùng</a></li>
-					<li><a class="glyphicon glyphicon-log-out"
-						href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
-				</ul></li>
-				<%}else{ %>
-				<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><font color="red"><span
-					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%></font>
-					<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Thông tin người dùng</a></li>
-					<li><a class="glyphicon glyphicon-log-out"
-						href="<%=response.encodeURL("Logout")%>">Đăng xuất</a></li>
-				</ul></li>
-				<%} %>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><span
-					class="glyphicon glyphicon-globe"></span> Ngôn ngữ <span
+					class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%> <span
 					class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<%=response.encodeURL("Lang?lang=eng")%>">Tiếng
-							anh</a></li>
-					<li><a href="<%=response.encodeURL("Lang?lang=vi")%>">Tiếng
-							việt</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							<%=Language.getBundles("header.userinfor", (Locale) session.getAttribute("locale"))%></a></li>
+					<li><a class="glyphicon glyphicon-log-out"
+						href="<%=response.encodeURL("Logout")%>"><%=Language.getBundles("header.logout", (Locale) session.getAttribute("locale"))%></a></li>
+				</ul></li>
+			<%
+				} else {
+			%>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><font color="red"><span
+						class="glyphicon glyphicon-user"></span> <%=u.getTenTK()%></font> <span
+					class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							<%=Language.getBundles("header.userinfor", (Locale) session.getAttribute("locale"))%></a></li>
+					<li><a class="glyphicon glyphicon-log-out"
+						href="<%=response.encodeURL("Logout")%>"><%=Language.getBundles("header.logout", (Locale) session.getAttribute("locale"))%></a></li>
+				</ul></li>
+			<%
+				}
+			%>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><span
+					class="glyphicon glyphicon-globe"></span><%=Language.getBundles("header.language", (Locale) session.getAttribute("locale"))%><span
+					class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="<%=response.encodeURL("Lang?lang=eng")%>"><%=Language.getBundles("header.english", (Locale) session.getAttribute("locale"))%></a></li>
+					<li><a href="<%=response.encodeURL("Lang?lang=vi")%>"><%=Language.getBundles("header.vietnamese", (Locale) session.getAttribute("locale"))%></a></li>
 				</ul></li>
 		</ul>
 		<form class="navbar-form navbar-right">
