@@ -19,9 +19,7 @@
 </head>
 <body>
 	<!-- Khi chưa đăng nhập -->
-	<%
-		if (session.getAttribute("username") == null) {
-	%>
+
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -30,68 +28,29 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="home"><a class="home"
-				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("title.home", (Locale) session.getAttribute("locale"))%></a></li>
+				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("home", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="support"><a
-				href="<%=request.getContextPath()%>/support.jsp"><%=Language.getBundles("header.support", (Locale) session.getAttribute("locale"))%></a></li>
+				href="<%=request.getContextPath()%>/support.jsp"><%=Language.getBundles("support", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="contact"><a
-				href="<%=request.getContextPath()%>/contact.jsp"><%=Language.getBundles("header.contact", (Locale) session.getAttribute("locale"))%></a></li>
+				href="<%=request.getContextPath()%>/contact.jsp"><%=Language.getBundles("contact", (Locale) session.getAttribute("locale"))%></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="shoppingcart"><a
 				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
-					class="glyphicon glyphicon-shopping-cart"></span><%=Language.getBundles("header.cart", (Locale) session.getAttribute("locale"))%></a></li>
+					class="glyphicon glyphicon-shopping-cart"></span><%=Language.getBundles("cart", (Locale) session.getAttribute("locale"))%></a></li>
+			<%
+				if (session.getAttribute("username") == null) {
+			%>
 			<li class="register"><a
 				href="<%=request.getContextPath()%>/signup.jsp"><span
-					class="glyphicon glyphicon-user"></span><%=Language.getBundles("header.signup", (Locale) session.getAttribute("locale"))%></a></li>
+					class="glyphicon glyphicon-user"></span><%=Language.getBundles("signup", (Locale) session.getAttribute("locale"))%></a></li>
 			<li class="logins"><a
 				href="<%=request.getContextPath()%>/signin.jsp"><span
-					class="glyphicon glyphicon-log-in"></span><%=Language.getBundles("header.signin", (Locale) session.getAttribute("locale"))%></a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><span
-					class="glyphicon glyphicon-globe"></span><%=Language.getBundles("header.language", (Locale) session.getAttribute("locale"))%><span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="<%=response.encodeURL("Lang?lang=eng")%>"><%=Language.getBundles("header.english", (Locale) session.getAttribute("locale"))%></a></li>
-					<li><a href="<%=response.encodeURL("Lang?lang=vi")%>"><%=Language.getBundles("header.vietnamese", (Locale) session.getAttribute("locale"))%></a></li>
-				</ul></li>
-		</ul>
-		<form class="navbar-form navbar-right">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Tên sản phẩm">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="submit" style="height: 34px;">
-						<i class="glyphicon glyphicon-search"></i>
-					</button>
-				</div>
-			</div>
-		</form>
-	</div>
-	</nav>
-	<%
-		} else {
-	%>
-	<!-- Khi đã đăng nhập -->
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand"
-				href="<%=request.getContextPath()%>/index.jsp">H2K shop</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="home"><a class="home"
-				href="<%=request.getContextPath()%>/index.jsp"><%=Language.getBundles("header.home", (Locale) session.getAttribute("locale"))%></a></li>
-			<li class="support"><a
-				href="<%=request.getContextPath()%>/support.jsp"><%=Language.getBundles("header.support", (Locale) session.getAttribute("locale"))%></a></li>
-			<li class="contact"><a
-				href="<%=request.getContextPath()%>/contact.jsp"><%=Language.getBundles("header.contact", (Locale) session.getAttribute("locale"))%></a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
+					class="glyphicon glyphicon-log-in"></span><%=Language.getBundles("signin", (Locale) session.getAttribute("locale"))%></a></li>
 			<%
-				NguoiDung u = (NguoiDung) session.getAttribute("username");
+				} else {
+					NguoiDung u = (NguoiDung) session.getAttribute("username");
 			%>
-			<li class="shoppingcart"><a
-				href="<%=request.getContextPath()%>/shoppingcart.jsp"><span
-					class="glyphicon glyphicon-shopping-cart"></span><%=Language.getBundles("header.cart", (Locale) session.getAttribute("locale"))%></a></li>
 			<%
 				if (u.getChucVu() == 0) {
 			%>
@@ -121,6 +80,9 @@
 			<%
 				}
 			%>
+			<%
+				}
+			%>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span
 					class="glyphicon glyphicon-globe"></span><%=Language.getBundles("header.language", (Locale) session.getAttribute("locale"))%><span
@@ -132,7 +94,7 @@
 		</ul>
 		<form class="navbar-form navbar-right">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Tên sản phẩm">
+				<input type="text" class="form-control" placeholder="<%=Language.getBundles("header.nameproduct", (Locale) session.getAttribute("locale"))%>">
 				<div class="input-group-btn">
 					<button class="btn btn-default" type="submit" style="height: 34px;">
 						<i class="glyphicon glyphicon-search"></i>
@@ -142,9 +104,5 @@
 		</form>
 	</div>
 	</nav>
-	<%
-		}
-	%>
-
 </body>
 </html>

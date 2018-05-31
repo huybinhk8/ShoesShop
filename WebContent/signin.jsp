@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Đăng nhập</title>
+<title><%=Language.getBundles("signin", (Locale) session.getAttribute("locale"))%></title>
 </head>
 <body>
 <%
@@ -49,7 +49,7 @@
 			<div class="signin">
 
 				<div class="well">
-					<h2 class="text-center"><%=Language.getBundles("header.signin", (Locale) session.getAttribute("locale"))%></h2>
+					<h2 class="text-center"><%=Language.getBundles("signin", (Locale) session.getAttribute("locale"))%></h2>
 					
 					<form action="<%=request.getContextPath()%>/Signin" method="post">
 					<center>
@@ -82,7 +82,7 @@
 						</table>
 						</center>
 						<center>
-							<button type="submit" class="btn btn-default btn-lg"><%=Language.getBundles("signin.login", (Locale) session.getAttribute("locale"))%></button>
+							<button type="submit" class="btn btn-default btn-lg"><%=Language.getBundles("signin", (Locale) session.getAttribute("locale"))%></button>
 						</center>
 					</form>
 				</div>

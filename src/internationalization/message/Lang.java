@@ -29,10 +29,8 @@ public class Lang extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("có vô");
 		HttpSession session = request.getSession();
 		String lang = request.getParameter("lang");
-		System.out.println("lang: " + lang);
 		String ngonngu = "";
 		String quocgia = "";
 		if(lang.equals("vi")){
@@ -44,8 +42,6 @@ public class Lang extends HttpServlet {
 			quocgia = "US";
 			session.setAttribute("locale", new Locale(ngonngu, quocgia));
 		}
-		System.out.println(session.getAttribute("locale").toString());
-		System.out.println(Language.getBundles("title.home", (Locale) session.getAttribute("locale")));
 		response.sendRedirect(request.getHeader("referer"));
 	}
 

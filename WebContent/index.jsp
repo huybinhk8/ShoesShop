@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trang chủ</title>
+<title><%=Language.getBundles("home", (Locale) session.getAttribute("locale"))%></title>
 </head>
 <body>
 	<%@include file="header.jsp" %>

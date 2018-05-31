@@ -14,10 +14,4 @@ public class Language {
 		}
 		return bundle.getString(key);
 	}
-	public static void main(String[] args) {
-		System.out.println("eng");
-		System.out.println(getBundles("title.home", new Locale("en", "US")));
-		System.out.println("vi");
-		System.out.println(getBundles("title.home", new Locale("vi", "VN")));
-	}
 }
