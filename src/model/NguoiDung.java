@@ -2,6 +2,11 @@ package model;
 
 import java.sql.Date;
 
+/**
+ * chức vụ admin là 1, còn kahsch hàng là 0.Đăng ký người dùng chức vụ auto là 0
+ * @author Ho Sy Huy
+ *
+ */
 public class NguoiDung {
 	private String maND;
 	private String tenND;

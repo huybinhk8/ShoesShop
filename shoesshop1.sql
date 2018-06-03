@@ -34,7 +34,7 @@ CREATE TABLE SANPHAM(
 GO
 
 CREATE TABLE NGUOIDUNG(
-	MAND VARCHAR(10) PRIMARY KEY,
+	MAND INT IDENTITY(1,1) PRIMARY KEY,
 	TENND NVARCHAR(50) NOT NULL,
 	PHAI INT NOT NULL,
 	NGAYSINH DATE,
@@ -45,8 +45,8 @@ CREATE TABLE NGUOIDUNG(
 GO
 
 CREATE TABLE DONHANG(
-	MADH VARCHAR(10) PRIMARY KEY,
-	MAND VARCHAR(10),
+	MADH INT IDENTITY(1,1) PRIMARY KEY,
+	MAND INT,
 	NGAYDATHANG DATE NOT NULL,
 	MASP VARCHAR(10),
 	SOLUONGSP INT NOT NULL,
@@ -75,15 +75,14 @@ go
 
 -- procedure
 --thủ tục đăng ký tài khoản
-CREATE PROCEDURE p_dangky (@maND VARCHAR(10), 
-						   @tenND NVARCHAR(50), 
+CREATE PROCEDURE p_dangky (@tenND NVARCHAR(50), 
 						   @phai INT, 
 						   @ngaySinh DATE, 
 						   @tenTK VARCHAR(100), 
 						   @matKhau VARCHAR(32))
 as
 begin
-	insert into NGUOIDUNG VALUES(@maND, @tenND, @phai, @ngaySinh, @tenTK, @matKhau, 0);
+	insert into NGUOIDUNG(TENND,PHAI,NGAYSINH,TENTK,MATKHAU,CHUCVU) VALUES(@tenND, @phai, @ngaySinh, @tenTK, @matKhau, 0);
 end;
 go
 
@@ -92,6 +91,6 @@ AS
 	SELECT * FROM v_thongtingnuoidung v WHERE v.TENTK = @username;
 go
 
-insert into NGUOIDUNG VALUES('001', N'Admin', 0,null,'admin', '123456', 1);
+insert into NGUOIDUNG(TENND,PHAI,NGAYSINH,TENTK,MATKHAU,CHUCVU) VALUES(N'Admin', 0,null,'admin', '123456', 1);
 
 
