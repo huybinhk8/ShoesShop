@@ -44,9 +44,12 @@ public class Signin extends HttpServlet {
 		HttpSession session = request.getSession();
 		boolean error = false;
 
+		//Lấy thông tin tên tài khoản người dùng nhập từ trang đăng nhập signin.jsp
 		String tentk = request.getParameter("tentk");
+		//tạo session lưu trữ tên tài khoản
 		session.setAttribute("signin", tentk);
 		if (tentk == null || tentk.equals("")) {
+			//bắt lỗi người dùng không nhập dữ liệu
 			error = true;
 			String errTentk = "Tên tài khoản không được để trống";
 			session.setAttribute("err_signin", errTentk);
@@ -54,8 +57,10 @@ public class Signin extends HttpServlet {
 			session.setAttribute("err_signin", null);
 		}
 
+		//Lấy thông tin mật khẩu người dùng nhập từ trang đăng nhập signin.jsp
 		String matkhau = request.getParameter("password");
 		if (matkhau == null || matkhau.equals("")) {
+			//bắt lỗi người dùng không nhập dữ liệu
 			error = true;
 			String errMatKhau = "Mật khẩu không được để trống";
 			session.setAttribute("err_pass", errMatKhau);
