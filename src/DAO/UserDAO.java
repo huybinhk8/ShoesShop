@@ -58,24 +58,23 @@ public class UserDAO {
 	 * @param matKhau Mật khẩu
 	 * @return <b>true</b> nếu thành công, <b>false</b> nếu thất bại
 	 */
-	public static boolean dangKy(String maND, String tenND, boolean phai, Date ngaySinh, String tenTk, String matKhau) {
+	public static boolean dangKy(String tenND, boolean phai, String ngaySinh, String tenTk, String matKhau) {
 		int i;
 		try {
 			Connection conn = DBConnection.getConnection();
-			String sql = "exec p_dangky ?, ?, ?, ?, ?, ?";
+			String sql = "exec p_dangky ?, ?, ?, ?, ?";
 			PreparedStatement pr = conn.prepareStatement(sql);
-			pr.setString(1, maND);
-			pr.setString(2, tenND);
+			pr.setNString(1, tenND);
 			int gioitinh = 0;
 			if (phai) {
 				gioitinh = 0;
 			} else {
 				gioitinh = 1;
 			}
-			pr.setInt(3, gioitinh);
-			pr.setDate(4, ngaySinh);
-			pr.setString(5, tenTk);
-			pr.setString(6, matKhau);
+			pr.setInt(2, gioitinh);
+			pr.setString(3, ngaySinh);
+			pr.setString(4, tenTk);
+			pr.setString(5, matKhau);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();
@@ -107,7 +106,7 @@ public class UserDAO {
 			String maND = "";
 			String tenND = "";
 			boolean phai = true;
-			Date ngaySinh = null;
+			String ngaySinh = null;
 			String tenTK = "";
 			int chucVu = 0;
 			while (rs.next()) {
@@ -120,7 +119,7 @@ public class UserDAO {
 				} else {
 					phai = false;
 				}
-				ngaySinh = rs.getDate("NGAYSINH");
+				ngaySinh = rs.getString("NGAYSINH");
 				tenTK = rs.getString("TENTK");
 				chucVu = rs.getInt("CHUCVU");
 				break;

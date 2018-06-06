@@ -1,9 +1,8 @@
 package model;
 
-import java.sql.Date;
-
 /**
  * chức vụ admin là 1, còn kahsch hàng là 0.Đăng ký người dùng chức vụ auto là 0
+ * 
  * @author Ho Sy Huy
  *
  */
@@ -11,11 +10,11 @@ public class NguoiDung {
 	private String maND;
 	private String tenND;
 	private boolean phai;
-	private Date ngaySinh;
+	private String ngaySinh;
 	private String tenTK;
 	private int chucVu;
 
-	public NguoiDung(String maND, String tenND, boolean phai, Date ngaySinh, String tenTK, int chucVu) {
+	public NguoiDung(String maND, String tenND, boolean phai, String ngaySinh, String tenTK, int chucVu) {
 		this.maND = maND;
 		this.tenND = tenND;
 		this.phai = phai;
@@ -48,11 +47,11 @@ public class NguoiDung {
 		this.phai = phai;
 	}
 
-	public Date getNgaySinh() {
+	public String getNgaySinh() {
 		return ngaySinh;
 	}
 
-	public void setNgaySinh(Date ngaySinh) {
+	public void setNgaySinh(String ngaySinh) {
 		this.ngaySinh = ngaySinh;
 	}
 
