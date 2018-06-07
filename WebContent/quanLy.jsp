@@ -37,7 +37,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="quantri.php"> QUẢN TRỊ HỆ THỐNG </a> <a
+				<a class="brand" href="#"> QUẢN TRỊ HỆ THỐNG </a> <a
 					href="#"
 					style="float: right; color: #FFF; padding: 10px;"> Trở lại
 					trang chủ </a>
@@ -65,7 +65,7 @@
 			<!-- END RESPONSIVE QUICK SEARCH FORM -->
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul>
-				<li class=""><a href="index.html"> <i class="icon-home"></i>
+				<li class=""><a href="#"> <i class="icon-home"></i>
 						Bảng thông tin <span class="selected"></span>
 				</a></li>
 				<%@include file="menu.jsp"%>
@@ -94,7 +94,7 @@
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<h3 class="page-title">Quản lý</h3>
 						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="index.html">Quản
+							<li><i class="icon-home"></i> <a href="#">Quản
 									trị</a> <span class="icon-angle-right"></span></li>
 							<li><a href="#">Shop giày</a></li>
 						</ul>

@@ -23,9 +23,5 @@
 					lý</a></li>
 			<li><a class="" href="#">Thêm mới</a></li>
 		</ul></li>
-
-
-
-
 </body>
 </html>
