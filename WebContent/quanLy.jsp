@@ -1,3 +1,4 @@
+<%@page import="java.util.Locale"%>
 <%@page import="internationalization.message.Language"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,7 +9,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quản lý H2K shop</title>
+<title><%=Language.getBundles("shoeshop", (Locale) session.getAttribute("locale"))%></title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="" name="description" />
 <meta content="" name="author" />
@@ -38,10 +39,11 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="#"> QUẢN TRỊ HỆ THỐNG </a> <a
-					href="#"
-					style="float: right; color: #FFF; padding: 10px;"> Trở lại
-					trang chủ </a>
+				<a class="brand" href="#">
+					<%=Language.getBundles("manager.systemmanager", (Locale) session.getAttribute("locale"))%>
+				</a> <a href="<%=request.getContextPath()%>/index.jsp" style="float: right; color: #FFF; padding: 10px;">
+					<%=Language.getBundles("manager.backtohome", (Locale) session.getAttribute("locale"))%>
+				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 				<a href="javascript:;" class="btn-navbar collapsed"
@@ -66,8 +68,8 @@
 			<!-- END RESPONSIVE QUICK SEARCH FORM -->
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul>
-				<li class=""><a href="#"> <i class="icon-home"></i>
-						Bảng thông tin <span class="selected"></span>
+				<li class=""><a href="#"> <i class="icon-home"></i> <%=Language.getBundles("manager.managerinfo", (Locale) session.getAttribute("locale"))%>
+						<span class="selected"></span>
 				</a></li>
 				<%@include file="menu.jsp"%>
 			</ul>
@@ -93,11 +95,11 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-						<h3 class="page-title">Quản lý</h3>
+						<h3 class="page-title"><%=Language.getBundles("shoeshop", (Locale) session.getAttribute("locale"))%></h3>
 						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="#">Quản
-									trị</a> <span class="icon-angle-right"></span></li>
-							<li><a href="#">Shop giày</a></li>
+							<li><i class="icon-home"></i> <a href="#"><%=Language.getBundles("manager", (Locale) session.getAttribute("locale"))%></a> <span
+								class="icon-angle-right"></span></li>
+							<li><a href="#"><%=Language.getBundles("manager.shoes", (Locale) session.getAttribute("locale"))%></a></li>
 						</ul>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>
@@ -107,7 +109,7 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<!-- BEGIN SAMPLE TABLE PORTLET-->
-							<!-- noi dung phần quan trị -->
+						<!-- noi dung phần quan trị -->
 						<!-- END SAMPLE TABLE PORTLET-->
 					</div>
 				</div>
@@ -148,7 +150,7 @@
 		src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script>
-
+		
 	</script>
 </body>
 <!-- END BODY -->

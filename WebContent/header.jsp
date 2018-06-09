@@ -78,9 +78,7 @@
 						href="<%=response.encodeURL("Logout")%>"><%=Language.getBundles("header.logout", (Locale) session.getAttribute("locale"))%></a></li>
 				</ul></li>
 			<%
-				}
-			%>
-			<%
+					}
 				}
 			%>
 			<li class="dropdown"><a class="dropdown-toggle"
@@ -94,7 +92,8 @@
 		</ul>
 		<form class="navbar-form navbar-right">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="<%=Language.getBundles("header.nameproduct", (Locale) session.getAttribute("locale"))%>">
+				<input type="text" class="form-control"
+					placeholder="<%=Language.getBundles("header.nameproduct", (Locale) session.getAttribute("locale"))%>">
 				<div class="input-group-btn">
 					<button class="btn btn-default" type="submit" style="height: 34px;">
 						<i class="glyphicon glyphicon-search"></i>
