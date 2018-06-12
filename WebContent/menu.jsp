@@ -16,12 +16,12 @@
 			<li class=""><a class="" href="#"><%=Language.getBundles("manager", (Locale) session.getAttribute("locale"))%></a></li>
 			<li><a class="" href="#"><%=Language.getBundles("add", (Locale) session.getAttribute("locale"))%></a></li>
 		</ul></li>
-	<li class="has-sub active"><a href="javascript:;" class="">
+	<li class="has-sub active"><a href="#" class="">
 			<%=Language.getBundles("user", (Locale) session.getAttribute("locale"))%> <span class="selected"></span>
 	</a>
 		<ul class="sub">
-			<li class=""><a class="" href="#"><%=Language.getBundles("manager", (Locale) session.getAttribute("locale"))%></a></li>
-			<li><a class="" href="#"><%=Language.getBundles("add", (Locale) session.getAttribute("locale"))%></a></li>
+			<li class=""><a class="" href="#quanlitaikhoan"><%=Language.getBundles("manager", (Locale) session.getAttribute("locale"))%></a></li>
+			<li><a class="" href="#themtaikhoan"><%=Language.getBundles("add", (Locale) session.getAttribute("locale"))%></a></li>
 		</ul></li>
 	<li class="has-sub active"><a href="javascript:;" class="">
 			<%=Language.getBundles("bill", (Locale) session.getAttribute("locale"))%><span class="selected"></span>
