@@ -74,11 +74,13 @@
 				<ul class="dropdown-menu">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
 							<%=Language.getBundles("header.userinfor", (Locale) session.getAttribute("locale"))%></a></li>
+					<li><a href="<%=request.getContextPath()%>/quanLy.jsp"><span class="glyphicon glyphicon-paste"></span>
+							<%=Language.getBundles("manager", (Locale) session.getAttribute("locale"))%></a></li>
 					<li><a class="glyphicon glyphicon-log-out"
 						href="<%=response.encodeURL("Logout")%>"><%=Language.getBundles("header.logout", (Locale) session.getAttribute("locale"))%></a></li>
 				</ul></li>
 			<%
-					}
+				}
 				}
 			%>
 			<li class="dropdown"><a class="dropdown-toggle"

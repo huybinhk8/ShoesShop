@@ -13,6 +13,19 @@
 </head>
 <body>
 	<%@include file="header.jsp"%>
+	<%
+		String maHang = (String) session.getAttribute("maHang1");
+		String phai = (String) session.getAttribute("sex");
+		boolean gioiTinh = false;
+		if (phai.equals("nam")) {
+			gioiTinh = true;
+		}
+		if (maHang == null || phai == null) {
+	%>
+	<jsp:forward page="index.jsp"></jsp:forward>
+	<%
+		}
+	%>
 	<script>
 		$(".home").addClass('active');
 	</script>
@@ -24,16 +37,26 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Giày Nam <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				<%for(Hang h: HangDAO.getHang()){
-					String link= "ViewHang?maHang="+h.getMaHang()+"&phai=nam";%>
-					<li><a href="<%=response.encodeURL(link)%>"><%=h.getTenHang() %></a></li><%} %>
+					<%
+						for (Hang h : HangDAO.getHang()) {
+							String link = "ViewHang?maHang=" + h.getMaHang() + "&phai=nam";
+					%>
+					<li><a href="<%=response.encodeURL(link)%>"><%=h.getTenHang()%></a></li>
+					<%
+						}
+					%>
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Giày Nữ <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Giày Boot</a></li>
-					<li><a href="#">Giày Cao Gót</a></li>
-					<li><a href="#">Giày búp bê</a></li>
+					<%
+						for (Hang h : HangDAO.getHang()) {
+							String link = "ViewHang?maHang=" + h.getMaHang() + "&phai=nu";
+					%>
+					<li><a href="<%=response.encodeURL(link)%>"><%=h.getTenHang()%></a></li>
+					<%
+						}
+					%>
 				</ul></li>
 			<li><a href="<%=request.getContextPath()%>/index.jsp">Tất cả</a></li>
 		</ul>
@@ -44,12 +67,12 @@
 		<br>
 		<div class="row">
 			<%
-				for (SanPham sp : ProductDAO.getAllProduct()) {
+				for (SanPham sp : ProductDAO.getProduct(maHang, gioiTinh)) {
 					String link = "ViewSP?maSP=" + sp.getMaSP();
 			%>
 			<div class="col-sm-3">
-				<a href="<%=response.encodeURL(link)%>"><%=sp.getTenSP()%></a>
-				<img src="<%=sp.getHinh()%>" style="width: 200px" alt="Image">
+				<a href="<%=response.encodeURL(link)%>"><%=sp.getTenSP()%></a> <img
+					src="<%=sp.getHinh()%>" style="width: 200px" alt="Image">
 				<p>
 					Giá:
 					<%=sp.getDonGia()%></p>

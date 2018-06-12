@@ -100,7 +100,17 @@ CREATE PROCEDURE p_thongtinnguoidung (@username VARCHAR(100))
 AS 
 	SELECT * FROM v_thongtingnuoidung v WHERE v.TENTK = @username;
 go
+create procedure sp_thongtinsanpham(@maHang VARCHAR(10),
+									@phai INT)
+as
+begin
+	select s.*, h.TENHANG 
+	from SANPHAM s join HANG h on s.MAHANG=h.MAHANG
+	where s.MAHANG=@maHang and s.PHAI=@phai;
+end;
+go
 
+		
 INSERT INTO NGUOIDUNG(TENND,PHAI,NGAYSINH,TENTK,MATKHAU,CHUCVU) VALUES(N'Admin', 0,null,'admin', '123456', 1);
 INSERT INTO NGUOIDUNG(TENND,PHAI,NGAYSINH,TENTK,MATKHAU,CHUCVU) VALUES(N'Trần Thị Thùy Dương', 1, '1997-05-01', 'tranduong', '789654', 0);
 INSERT INTO NGUOIDUNG(TENND,PHAI,NGAYSINH,TENTK,MATKHAU,CHUCVU) VALUES(N'Trần Thị Phương Trà', 1, '1996-12-02', 'tranho', 'ngoybi',0);
